@@ -42,12 +42,12 @@ public class Corrigir {
             SaidaParser out = new SaidaParser();
             TabelaDeSimbolos.limparTabela();
             ANTLRInputStream input = new ANTLRInputStream(new FileInputStream(casoTeste));
-            LuaLexer lexer = new LuaLexer(input);
+            t1.LuaLexer lexer = new t1.LuaLexer(input);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
-            LuaParser parser = new LuaParser(tokens);
+            t1.LuaParser parser = new t1.LuaParser(tokens);
             parser.addErrorListener(new T1ErrorListener(out));
 
-            parser.programa();
+            parser.trecho();
 
             if (!out.isModificado()) {
                 out.println("Fim da analise. Sem erros sintaticos.");
@@ -110,9 +110,9 @@ public class Corrigir {
         }
         if(!GERA) {
             double nota = ((double) (totalCasosTeste - casosTesteErrados) / totalCasosTeste) * 10.0d;
-            System.err.println("Nota = " + nota + " ("+LuaParser.grupo+")");
+            System.err.println("Nota = " + nota + " ("+ t1.LuaParser.grupo+")");
         } else {
-            System.err.println("Gabarito gerado: "+LuaParser.grupo);
+            System.err.println("Gabarito gerado: "+ t1.LuaParser.grupo);
         }
     }
 }

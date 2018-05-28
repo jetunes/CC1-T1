@@ -3,56 +3,85 @@
  * and open the template in the editor.
  */
 
+
 grammar Lua;
 
 @members {
    public static String grupo="<<Digite os RAs do grupo aqui>>";
 }
 
-// base
-fragment LETRA : ('A'..'Z' | 'a'..'z');
-fragment ALGARISMO : ('0'..'9');
-
-CARACTERE : (LETRA) | (ALGARISMO)+ | (LETRA)+ (ALGARISMO)+ | (ALGARISMO)+ (LETRA)+;
-INTEIRO : (ALGARISMO)+;
-
-// Declarar funcao:
-FUNCTION : 'function' ;
-NOMEVARIAVEL : 'n';
-NOMEFUNCAO : 'func';
-
-// IF
-IF : 'if';
-THEN: 'then';
-ELSE: 'else';
-
-// Utilidades
-COMPARACAO: '==';
-COMENTARIO : '--' CARACTERE;
-LPAREN : '(' ;
-RPAREN : ')' ;
-END : 'end';
-RETURN: 'return';
-OPERADOR : '*' | '-';
 
 // geral
-programa : (declaracao)? (conjunto_codigos)?;
-conjunto_codigos : comando | comentario comando | comando comentario/*| comando conjunto_codigos*/;
-comando : declaracao | comando_if | calculo;
-declaracao : declaracao_funcao;
-expressao_logica: var COMPARACAO INTEIRO;
 
-calculo : var OPERADOR chamada_funcao | var OPERADOR INTEIRO;
+trecho : comando ';'? | ultimocomando ';'?;
 
-// if
-comando_if:IF (' ') expressao_logica (' ') THEN ELSE END;
+bloco : trecho;
 
-// funcao
-declaracao_funcao: FUNCTION (' ') funcao_nome (' ') LPAREN var RPAREN ('\n') conjunto_codigos END;
-chamada_funcao: funcao_nome LPAREN calculo RPAREN;
+comando :  listavar 'atr' listaexp |
+		   chamadadefuncao |
+		   'do' bloco 'end' |
+		   'while' exp 'do' bloco 'end' |
+		    'reapeat' bloco 'until' exp |
+		    'if' exp 'then' bloco ('elseif' exp 'then' bloco)* ('else' bloco)? 'end' |
+		    'for' var '=' exp ',' exp (',' exp)* 'do' bloco 'end' |
+		    'for' listadenomes 'in' listaexp 'do' bloco 'end' |
+		    'function' nomedafuncao corpodafuncao
+		    { TabelaDeSimbolos.adicionarSimbolo($nomedafuncao.text,Tipo.FUNCAO); }|
+		    'local' 'function' 'nome' corpodafuncao |
+		    'local' listadenomes ('atr' listaexp)?;
 
-// outros
-funcao_nome : NOMEFUNCAO{TabelaDeSimbolos.adicionarSimbolo($NOMEFUNCAO.text, Tipo.FUNCAO};
-var : NOMEVARIAVEL{TabelaDeSimbolos.adicionarSimbolo($NOMEVARIAVEL.text, Tipo.VARIAVEL};
-comentario : COMENTARIO;
-retorno: RETURN INTEIRO | RETURN calculo;
+ultimocomando : 'return' listaexp? | 'break';
+
+nomedafuncao : NOME ('.' NOME)* (':' NOME)?;
+
+listavar : var { TabelaDeSimbolos.adicionarSimbolo($var.text,Tipo.VARIAVEL); } (',' var)*;
+
+var :  NOME | NOME varsufix;
+
+varsufix : '[' exp ']'|'[' exp ']' varsufix |'.' var { TabelaDeSimbolos.adicionarSimbolo($var.text,Tipo.VARIAVEL); };
+
+listadenomes : NOME (',' NOME)*;
+
+listaexp : exp (',' exp)*;
+
+exp :  'nil' | 'false' | 'true' | NUMERO | CADEIA | '...' | funcao |
+	   expprefixo | construtortabela | exp opbin exp | opunaria exp;
+
+expprefixo :  var { TabelaDeSimbolos.adicionarSimbolo($var.text,Tipo.VARIAVEL); } | chamadadefuncao | '(' exp ')';
+
+chamadadefuncao : var { TabelaDeSimbolos.adicionarSimbolo($var.text,Tipo.VARIAVEL); } args | var { TabelaDeSimbolos.adicionarSimbolo($var.text,Tipo.VARIAVEL); } ':' NOME args;
+
+args : '(' listaexp ')' | construtortabela | CADEIA;
+
+funcao : 'function' corpodafuncao;
+
+corpodafuncao : '(' listapar ')' bloco 'end';
+
+listapar : listadenomes (',' '...')? | '...';
+
+construtortabela :  '{' listadecampos '}';
+
+listadecampos : campo (separadordecampos campo)* (separadordecampos)?;
+
+campo : '[' exp ']' '=' exp | NOME '=' exp | exp;
+
+separadordecampos : ',' | ';';
+
+opbin : '+' | '-' | '*' | '/' | '^' | '%' | '..' |
+		 '<' | '<=' | '>' | '>=' | '==' | '~=' |
+		 'and' | 'or';
+
+opunaria : '-' | 'nor' | '#';
+
+//Pula espaço
+WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+
+//Discartar comentarios
+LINE_COMMENT
+: '--' ~[\r\n]* -> skip
+;
+NOME : ('a'..'z' | 'A'..'Z')+(('a'..'z' | 'A'..'Z') | ('0'..'9') | '_')*;
+//Cadeia de caracteres
+CADEIA : '"' (~('\\'|'\''|'"') )* '"'|'\'' (~('\\'|'\''|'"') )* '\'';
+
+NUMERO: ('0'..'9')+;

@@ -13,11 +13,11 @@ public class TestaAnalisadorSintatico {
 // Obs: a linha abaixo está configurada para usar como entrada o arquivo lua1.txt
 // Modifique-a para testar os demais exemplos
         ANTLRInputStream input = new ANTLRInputStream(TestaAnalisadorSintatico.class.getResourceAsStream("exemplos/lua1.txt"));
-        LuaLexer lexer = new LuaLexer(input);
+        t1.LuaLexer lexer = new t1.LuaLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        LuaParser parser = new LuaParser(tokens);
-        parser.addErrorListener(new T1ErrorListener(out));
-        parser.programa();
+        t1.LuaParser parser = new t1.LuaParser(tokens);
+        parser.addErrorListener(new t1.T1ErrorListener(out));
+        parser.trecho();
         if (!out.isModificado()) {
             out.println("Fim da analise. Sem erros sintaticos.");
             out.println("Tabela de simbolos:");
