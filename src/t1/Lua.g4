@@ -1,3 +1,10 @@
+//Conversões realizadas de LUA -> ANTLR
+// "::="   => ":"
+// {regra} => (regra)*
+// [regra] => (regra)?
+// 'cadeias' devem ser envoltas por aspas simples
+// toda regra deve terminar com ";"
+
 
 grammar Lua;
 
@@ -57,15 +64,16 @@ CADEIA: ([\\'] (~[\\'])* [\\']) | ('"' (~'"')* '"');
 ID : (LETRA|UNDERSCORE) ((LETRA|ALGARISMO|UNDERSCORE)+)?;
 NUMERO : ALGARISMO* DOT? ALGARISMO+;
 
-//FIM DAS IDENTIFICAÇÕES
+//FIM DAS DECLARAÇÕES DE EQUIVALÊNCIA
 
 
-//O programa é um conjunto de trechos
+//Um programa LUA é um conjunto de trechos
 //Ou seja, um programa possui um ou mais trechos
 programa : trecho;
 
 //Um trecho é um conjunto de comandos
 trecho: (comando SEMI_C?)* (comando_ultimo SEMI_C?)?;
+//Assim como o bloco
 bloco: trecho;
 comando_ultimo: retorno ;
 
