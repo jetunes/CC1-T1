@@ -98,7 +98,7 @@ public class LuaParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
-	   public static String grupo="<<Digite os RAs do grupo aqui>>";
+	   public static String grupo="<<Digite os RAs do grupo aqui 619612>>";
 
 	public LuaParser(TokenStream input) {
 		super(input);

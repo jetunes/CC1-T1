@@ -2,7 +2,7 @@
 grammar Lua;
 
 @members {
-   public static String grupo="<<Digite os RAs do grupo aqui>>";
+   public static String grupo="<<Digite os RAs do grupo aqui 619612>>";
 }
 WS:   (' ') -> skip;
 ENDL:  ([\n] | [\t]) -> skip;
@@ -49,13 +49,28 @@ COMENTARIO_INICIO: '--' ~([\n]|[\r])+ -> skip;
 UNDERSCORE: '_';
 DOT: '.';
 SEMI_C: ';' ;
+
+//Cadeia de Caracteres
 CADEIA: ([\\'] (~[\\'])* [\\']) | ('"' (~'"')* '"');
+
+
 ID : (LETRA|UNDERSCORE) ((LETRA|ALGARISMO|UNDERSCORE)+)?;
 NUMERO : ALGARISMO* DOT? ALGARISMO+;
+
+//FIM DAS IDENTIFICAÇÕES
+
+
+//O programa é um conjunto de trechos
+//Ou seja, um programa possui um ou mais trechos
 programa : trecho;
+
+//Um trecho é um conjunto de comandos
 trecho: (comando SEMI_C?)* (comando_ultimo SEMI_C?)?;
 bloco: trecho;
 comando_ultimo: retorno ;
+
+//Comandos são as regras de construção de uma linguagem
+//No caso da linguegem LUA são funções, IF, FOR, DO, REPEAT e LOCAL
 comando : atr
         | comentario
         | if_decl
