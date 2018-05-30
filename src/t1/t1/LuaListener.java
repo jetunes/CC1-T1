@@ -8,6 +8,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface LuaListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link LuaParser#programa}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrograma(LuaParser.ProgramaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaParser#programa}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrograma(LuaParser.ProgramaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LuaParser#trecho}.
 	 * @param ctx the parse tree
 	 */
@@ -28,6 +38,16 @@ public interface LuaListener extends ParseTreeListener {
 	 */
 	void exitBloco(LuaParser.BlocoContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link LuaParser#comando_ultimo}.
+	 * @param ctx the parse tree
+	 */
+	void enterComando_ultimo(LuaParser.Comando_ultimoContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaParser#comando_ultimo}.
+	 * @param ctx the parse tree
+	 */
+	void exitComando_ultimo(LuaParser.Comando_ultimoContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link LuaParser#comando}.
 	 * @param ctx the parse tree
 	 */
@@ -38,105 +58,105 @@ public interface LuaListener extends ParseTreeListener {
 	 */
 	void exitComando(LuaParser.ComandoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#ultimocomando}.
+	 * Enter a parse tree produced by {@link LuaParser#comentario}.
 	 * @param ctx the parse tree
 	 */
-	void enterUltimocomando(LuaParser.UltimocomandoContext ctx);
+	void enterComentario(LuaParser.ComentarioContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#ultimocomando}.
+	 * Exit a parse tree produced by {@link LuaParser#comentario}.
 	 * @param ctx the parse tree
 	 */
-	void exitUltimocomando(LuaParser.UltimocomandoContext ctx);
+	void exitComentario(LuaParser.ComentarioContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#nomedafuncao}.
+	 * Enter a parse tree produced by {@link LuaParser#retorno}.
 	 * @param ctx the parse tree
 	 */
-	void enterNomedafuncao(LuaParser.NomedafuncaoContext ctx);
+	void enterRetorno(LuaParser.RetornoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#nomedafuncao}.
+	 * Exit a parse tree produced by {@link LuaParser#retorno}.
 	 * @param ctx the parse tree
 	 */
-	void exitNomedafuncao(LuaParser.NomedafuncaoContext ctx);
+	void exitRetorno(LuaParser.RetornoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#listavar}.
+	 * Enter a parse tree produced by {@link LuaParser#do_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterListavar(LuaParser.ListavarContext ctx);
+	void enterDo_decl(LuaParser.Do_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#listavar}.
+	 * Exit a parse tree produced by {@link LuaParser#do_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitListavar(LuaParser.ListavarContext ctx);
+	void exitDo_decl(LuaParser.Do_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#var}.
+	 * Enter a parse tree produced by {@link LuaParser#repeat_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterVar(LuaParser.VarContext ctx);
+	void enterRepeat_decl(LuaParser.Repeat_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#var}.
+	 * Exit a parse tree produced by {@link LuaParser#repeat_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitVar(LuaParser.VarContext ctx);
+	void exitRepeat_decl(LuaParser.Repeat_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#varsufix}.
+	 * Enter a parse tree produced by {@link LuaParser#for_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterVarsufix(LuaParser.VarsufixContext ctx);
+	void enterFor_decl(LuaParser.For_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#varsufix}.
+	 * Exit a parse tree produced by {@link LuaParser#for_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitVarsufix(LuaParser.VarsufixContext ctx);
+	void exitFor_decl(LuaParser.For_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#listadenomes}.
+	 * Enter a parse tree produced by {@link LuaParser#if_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterListadenomes(LuaParser.ListadenomesContext ctx);
+	void enterIf_decl(LuaParser.If_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#listadenomes}.
+	 * Exit a parse tree produced by {@link LuaParser#if_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitListadenomes(LuaParser.ListadenomesContext ctx);
+	void exitIf_decl(LuaParser.If_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#listaexp}.
+	 * Enter a parse tree produced by {@link LuaParser#log_exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterListaexp(LuaParser.ListaexpContext ctx);
+	void enterLog_exp(LuaParser.Log_expContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#listaexp}.
+	 * Exit a parse tree produced by {@link LuaParser#log_exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitListaexp(LuaParser.ListaexpContext ctx);
+	void exitLog_exp(LuaParser.Log_expContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#exp}.
+	 * Enter a parse tree produced by {@link LuaParser#funcao_decl}.
 	 * @param ctx the parse tree
 	 */
-	void enterExp(LuaParser.ExpContext ctx);
+	void enterFuncao_decl(LuaParser.Funcao_declContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#exp}.
+	 * Exit a parse tree produced by {@link LuaParser#funcao_decl}.
 	 * @param ctx the parse tree
 	 */
-	void exitExp(LuaParser.ExpContext ctx);
+	void exitFuncao_decl(LuaParser.Funcao_declContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#expprefixo}.
+	 * Enter a parse tree produced by {@link LuaParser#funcao_corpo}.
 	 * @param ctx the parse tree
 	 */
-	void enterExpprefixo(LuaParser.ExpprefixoContext ctx);
+	void enterFuncao_corpo(LuaParser.Funcao_corpoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#expprefixo}.
+	 * Exit a parse tree produced by {@link LuaParser#funcao_corpo}.
 	 * @param ctx the parse tree
 	 */
-	void exitExpprefixo(LuaParser.ExpprefixoContext ctx);
+	void exitFuncao_corpo(LuaParser.Funcao_corpoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#chamadadefuncao}.
+	 * Enter a parse tree produced by {@link LuaParser#funcao_chamada}.
 	 * @param ctx the parse tree
 	 */
-	void enterChamadadefuncao(LuaParser.ChamadadefuncaoContext ctx);
+	void enterFuncao_chamada(LuaParser.Funcao_chamadaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#chamadadefuncao}.
+	 * Exit a parse tree produced by {@link LuaParser#funcao_chamada}.
 	 * @param ctx the parse tree
 	 */
-	void exitChamadadefuncao(LuaParser.ChamadadefuncaoContext ctx);
+	void exitFuncao_chamada(LuaParser.Funcao_chamadaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LuaParser#args}.
 	 * @param ctx the parse tree
@@ -148,93 +168,123 @@ public interface LuaListener extends ParseTreeListener {
 	 */
 	void exitArgs(LuaParser.ArgsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#funcao}.
+	 * Enter a parse tree produced by {@link LuaParser#funcao_nome}.
 	 * @param ctx the parse tree
 	 */
-	void enterFuncao(LuaParser.FuncaoContext ctx);
+	void enterFuncao_nome(LuaParser.Funcao_nomeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#funcao}.
+	 * Exit a parse tree produced by {@link LuaParser#funcao_nome}.
 	 * @param ctx the parse tree
 	 */
-	void exitFuncao(LuaParser.FuncaoContext ctx);
+	void exitFuncao_nome(LuaParser.Funcao_nomeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#corpodafuncao}.
+	 * Enter a parse tree produced by {@link LuaParser#funcao_nome_tabela}.
 	 * @param ctx the parse tree
 	 */
-	void enterCorpodafuncao(LuaParser.CorpodafuncaoContext ctx);
+	void enterFuncao_nome_tabela(LuaParser.Funcao_nome_tabelaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#corpodafuncao}.
+	 * Exit a parse tree produced by {@link LuaParser#funcao_nome_tabela}.
 	 * @param ctx the parse tree
 	 */
-	void exitCorpodafuncao(LuaParser.CorpodafuncaoContext ctx);
+	void exitFuncao_nome_tabela(LuaParser.Funcao_nome_tabelaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#listapar}.
+	 * Enter a parse tree produced by {@link LuaParser#var}.
 	 * @param ctx the parse tree
 	 */
-	void enterListapar(LuaParser.ListaparContext ctx);
+	void enterVar(LuaParser.VarContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#listapar}.
+	 * Exit a parse tree produced by {@link LuaParser#var}.
 	 * @param ctx the parse tree
 	 */
-	void exitListapar(LuaParser.ListaparContext ctx);
+	void exitVar(LuaParser.VarContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#construtortabela}.
+	 * Enter a parse tree produced by {@link LuaParser#valor}.
 	 * @param ctx the parse tree
 	 */
-	void enterConstrutortabela(LuaParser.ConstrutortabelaContext ctx);
+	void enterValor(LuaParser.ValorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#construtortabela}.
+	 * Exit a parse tree produced by {@link LuaParser#valor}.
 	 * @param ctx the parse tree
 	 */
-	void exitConstrutortabela(LuaParser.ConstrutortabelaContext ctx);
+	void exitValor(LuaParser.ValorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#listadecampos}.
+	 * Enter a parse tree produced by {@link LuaParser#atr}.
 	 * @param ctx the parse tree
 	 */
-	void enterListadecampos(LuaParser.ListadecamposContext ctx);
+	void enterAtr(LuaParser.AtrContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#listadecampos}.
+	 * Exit a parse tree produced by {@link LuaParser#atr}.
 	 * @param ctx the parse tree
 	 */
-	void exitListadecampos(LuaParser.ListadecamposContext ctx);
+	void exitAtr(LuaParser.AtrContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#campo}.
+	 * Enter a parse tree produced by {@link LuaParser#lista_valor}.
 	 * @param ctx the parse tree
 	 */
-	void enterCampo(LuaParser.CampoContext ctx);
+	void enterLista_valor(LuaParser.Lista_valorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#campo}.
+	 * Exit a parse tree produced by {@link LuaParser#lista_valor}.
 	 * @param ctx the parse tree
 	 */
-	void exitCampo(LuaParser.CampoContext ctx);
+	void exitLista_valor(LuaParser.Lista_valorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#separadordecampos}.
+	 * Enter a parse tree produced by {@link LuaParser#lista_var}.
 	 * @param ctx the parse tree
 	 */
-	void enterSeparadordecampos(LuaParser.SeparadordecamposContext ctx);
+	void enterLista_var(LuaParser.Lista_varContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#separadordecampos}.
+	 * Exit a parse tree produced by {@link LuaParser#lista_var}.
 	 * @param ctx the parse tree
 	 */
-	void exitSeparadordecampos(LuaParser.SeparadordecamposContext ctx);
+	void exitLista_var(LuaParser.Lista_varContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#opbin}.
+	 * Enter a parse tree produced by {@link LuaParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterOpbin(LuaParser.OpbinContext ctx);
+	void enterExp(LuaParser.ExpContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#opbin}.
+	 * Exit a parse tree produced by {@link LuaParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitOpbin(LuaParser.OpbinContext ctx);
+	void exitExp(LuaParser.ExpContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link LuaParser#opunaria}.
+	 * Enter a parse tree produced by {@link LuaParser#atribuicao}.
 	 * @param ctx the parse tree
 	 */
-	void enterOpunaria(LuaParser.OpunariaContext ctx);
+	void enterAtribuicao(LuaParser.AtribuicaoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link LuaParser#opunaria}.
+	 * Exit a parse tree produced by {@link LuaParser#atribuicao}.
 	 * @param ctx the parse tree
 	 */
-	void exitOpunaria(LuaParser.OpunariaContext ctx);
+	void exitAtribuicao(LuaParser.AtribuicaoContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LuaParser#operador1}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperador1(LuaParser.Operador1Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaParser#operador1}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperador1(LuaParser.Operador1Context ctx);
+	/**
+	 * Enter a parse tree produced by {@link LuaParser#operador2}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperador2(LuaParser.Operador2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaParser#operador2}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperador2(LuaParser.Operador2Context ctx);
+	/**
+	 * Enter a parse tree produced by {@link LuaParser#operador_un}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperador_un(LuaParser.Operador_unContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaParser#operador_un}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperador_un(LuaParser.Operador_unContext ctx);
 }

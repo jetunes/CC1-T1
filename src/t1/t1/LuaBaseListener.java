@@ -16,6 +16,18 @@ public class LuaBaseListener implements LuaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPrograma(LuaParser.ProgramaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrograma(LuaParser.ProgramaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterTrecho(LuaParser.TrechoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -40,6 +52,18 @@ public class LuaBaseListener implements LuaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterComando_ultimo(LuaParser.Comando_ultimoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComando_ultimo(LuaParser.Comando_ultimoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterComando(LuaParser.ComandoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -52,121 +76,121 @@ public class LuaBaseListener implements LuaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUltimocomando(LuaParser.UltimocomandoContext ctx) { }
+	@Override public void enterComentario(LuaParser.ComentarioContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUltimocomando(LuaParser.UltimocomandoContext ctx) { }
+	@Override public void exitComentario(LuaParser.ComentarioContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNomedafuncao(LuaParser.NomedafuncaoContext ctx) { }
+	@Override public void enterRetorno(LuaParser.RetornoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNomedafuncao(LuaParser.NomedafuncaoContext ctx) { }
+	@Override public void exitRetorno(LuaParser.RetornoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterListavar(LuaParser.ListavarContext ctx) { }
+	@Override public void enterDo_decl(LuaParser.Do_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitListavar(LuaParser.ListavarContext ctx) { }
+	@Override public void exitDo_decl(LuaParser.Do_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVar(LuaParser.VarContext ctx) { }
+	@Override public void enterRepeat_decl(LuaParser.Repeat_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVar(LuaParser.VarContext ctx) { }
+	@Override public void exitRepeat_decl(LuaParser.Repeat_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVarsufix(LuaParser.VarsufixContext ctx) { }
+	@Override public void enterFor_decl(LuaParser.For_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVarsufix(LuaParser.VarsufixContext ctx) { }
+	@Override public void exitFor_decl(LuaParser.For_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterListadenomes(LuaParser.ListadenomesContext ctx) { }
+	@Override public void enterIf_decl(LuaParser.If_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitListadenomes(LuaParser.ListadenomesContext ctx) { }
+	@Override public void exitIf_decl(LuaParser.If_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterListaexp(LuaParser.ListaexpContext ctx) { }
+	@Override public void enterLog_exp(LuaParser.Log_expContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitListaexp(LuaParser.ListaexpContext ctx) { }
+	@Override public void exitLog_exp(LuaParser.Log_expContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExp(LuaParser.ExpContext ctx) { }
+	@Override public void enterFuncao_decl(LuaParser.Funcao_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExp(LuaParser.ExpContext ctx) { }
+	@Override public void exitFuncao_decl(LuaParser.Funcao_declContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpprefixo(LuaParser.ExpprefixoContext ctx) { }
+	@Override public void enterFuncao_corpo(LuaParser.Funcao_corpoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpprefixo(LuaParser.ExpprefixoContext ctx) { }
+	@Override public void exitFuncao_corpo(LuaParser.Funcao_corpoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterChamadadefuncao(LuaParser.ChamadadefuncaoContext ctx) { }
+	@Override public void enterFuncao_chamada(LuaParser.Funcao_chamadaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitChamadadefuncao(LuaParser.ChamadadefuncaoContext ctx) { }
+	@Override public void exitFuncao_chamada(LuaParser.Funcao_chamadaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -184,109 +208,145 @@ public class LuaBaseListener implements LuaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFuncao(LuaParser.FuncaoContext ctx) { }
+	@Override public void enterFuncao_nome(LuaParser.Funcao_nomeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFuncao(LuaParser.FuncaoContext ctx) { }
+	@Override public void exitFuncao_nome(LuaParser.Funcao_nomeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCorpodafuncao(LuaParser.CorpodafuncaoContext ctx) { }
+	@Override public void enterFuncao_nome_tabela(LuaParser.Funcao_nome_tabelaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCorpodafuncao(LuaParser.CorpodafuncaoContext ctx) { }
+	@Override public void exitFuncao_nome_tabela(LuaParser.Funcao_nome_tabelaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterListapar(LuaParser.ListaparContext ctx) { }
+	@Override public void enterVar(LuaParser.VarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitListapar(LuaParser.ListaparContext ctx) { }
+	@Override public void exitVar(LuaParser.VarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstrutortabela(LuaParser.ConstrutortabelaContext ctx) { }
+	@Override public void enterValor(LuaParser.ValorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConstrutortabela(LuaParser.ConstrutortabelaContext ctx) { }
+	@Override public void exitValor(LuaParser.ValorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterListadecampos(LuaParser.ListadecamposContext ctx) { }
+	@Override public void enterAtr(LuaParser.AtrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitListadecampos(LuaParser.ListadecamposContext ctx) { }
+	@Override public void exitAtr(LuaParser.AtrContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCampo(LuaParser.CampoContext ctx) { }
+	@Override public void enterLista_valor(LuaParser.Lista_valorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCampo(LuaParser.CampoContext ctx) { }
+	@Override public void exitLista_valor(LuaParser.Lista_valorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSeparadordecampos(LuaParser.SeparadordecamposContext ctx) { }
+	@Override public void enterLista_var(LuaParser.Lista_varContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSeparadordecampos(LuaParser.SeparadordecamposContext ctx) { }
+	@Override public void exitLista_var(LuaParser.Lista_varContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOpbin(LuaParser.OpbinContext ctx) { }
+	@Override public void enterExp(LuaParser.ExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOpbin(LuaParser.OpbinContext ctx) { }
+	@Override public void exitExp(LuaParser.ExpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOpunaria(LuaParser.OpunariaContext ctx) { }
+	@Override public void enterAtribuicao(LuaParser.AtribuicaoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOpunaria(LuaParser.OpunariaContext ctx) { }
+	@Override public void exitAtribuicao(LuaParser.AtribuicaoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperador1(LuaParser.Operador1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperador1(LuaParser.Operador1Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperador2(LuaParser.Operador2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperador2(LuaParser.Operador2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOperador_un(LuaParser.Operador_unContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOperador_un(LuaParser.Operador_unContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
